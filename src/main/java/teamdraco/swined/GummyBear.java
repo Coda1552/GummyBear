@@ -17,7 +17,7 @@ public class GummyBear {
     public final static CreativeModeTab GROUP = new CreativeModeTab(MOD_ID) {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(Items.PORKCHOP);
+            return new ItemStack(GBItems.GUMMY_BEAR_SPAWN_EGG.get());
         }
     };
 
