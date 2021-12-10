@@ -59,11 +59,6 @@ public class GummyBearEntity extends TamableAnimal {
     }
 
     @Override
-    public boolean shouldShowName() {
-        return isCustomNameVisible();
-    }
-
-    @Override
     public ItemStack getPickedResult(HitResult target) {
         return new ItemStack(GBItems.GUMMY_BEAR_SPAWN_EGG.get());
     }
