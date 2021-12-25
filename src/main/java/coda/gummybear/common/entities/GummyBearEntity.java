@@ -39,12 +39,11 @@ public class GummyBearEntity extends TamableAnimal {
     }
 
     protected void registerGoals() {
-        super.registerGoals();
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(0, new BreedGoal(this, 1.0F));
         this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0F, true));
         this.goalSelector.addGoal(1, new TemptGoal(this, 1.0F, Ingredient.of(Items.SALMON), false));
-        this.goalSelector.addGoal(1, new BreedGoal(this, 1.0F));
         this.goalSelector.addGoal(2, new RandomStrollGoal(this, 0.6D));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F, 1.0F));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Mob.class, 8.0F));
@@ -56,7 +55,7 @@ public class GummyBearEntity extends TamableAnimal {
 
     @Override
     public boolean canAttack(LivingEntity p_21822_) {
-        return !this.isOwnedBy(p_21822_);
+        return  !(p_21822_ instanceof GummyBearEntity);
     }
 
     @Override
@@ -145,17 +144,17 @@ public class GummyBearEntity extends TamableAnimal {
     }
 
     @Override
-    public boolean hurt(DamageSource p_30386_, float p_30387_) {
-        if (this.isInvulnerableTo(p_30386_)) {
+    public boolean hurt(DamageSource source, float amount) {
+        if (this.isInvulnerableTo(source)) {
             return false;
         } else {
-            Entity entity = p_30386_.getEntity();
+            Entity entity = source.getEntity();
             this.setOrderedToSit(false);
             if (entity != null && !(entity instanceof Player) && !(entity instanceof AbstractArrow)) {
-                p_30387_ = (p_30387_ + 1.0F) / 2.0F;
+                amount = (amount + 1.0F) / 2.0F;
             }
 
-            return super.hurt(p_30386_, p_30387_);
+            return super.hurt(source, amount);
         }
     }
 }
