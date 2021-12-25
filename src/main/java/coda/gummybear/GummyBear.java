@@ -1,15 +1,14 @@
-package teamdraco.swined;
+package coda.gummybear;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import teamdraco.swined.common.entities.GummyBearEntity;
-import teamdraco.swined.init.GBEntities;
-import teamdraco.swined.init.GBItems;
+import coda.gummybear.common.entities.GummyBearEntity;
+import coda.gummybear.init.GBEntities;
+import coda.gummybear.init.GBItems;
 
 @Mod(GummyBear.MOD_ID)
 public class GummyBear {
