@@ -12,7 +12,7 @@ import coda.gummybear.common.entities.GummyBearEntity;
 public class GBEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, GummyBear.MOD_ID);
 
-    public static final RegistryObject<EntityType<GummyBearEntity>> GUMMY_BEAR = create("gummy_bear", EntityType.Builder.of(GummyBearEntity::new, MobCategory.CREATURE).sized(1.2F, 1.1F));
+    public static final RegistryObject<EntityType<GummyBearEntity>> GUMMY_BEAR = create("gummy_bear", EntityType.Builder.of(GummyBearEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 
     private static <T extends Entity> RegistryObject<EntityType<T>> create(String name, EntityType.Builder<T> builder) {
         return ENTITIES.register(name, () -> builder.build(GummyBear.MOD_ID + "." + name));

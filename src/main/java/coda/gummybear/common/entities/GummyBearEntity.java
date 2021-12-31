@@ -40,10 +40,9 @@ public class GummyBearEntity extends TamableAnimal {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(0, new BreedGoal(this, 1.0F));
         this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0F, true));
-        this.goalSelector.addGoal(1, new TemptGoal(this, 1.0F, Ingredient.of(Items.SALMON), false));
+        this.goalSelector.addGoal(1, new TemptGoal(this, 1.0F, Ingredient.of(Items.SUGAR), false));
         this.goalSelector.addGoal(2, new RandomStrollGoal(this, 0.6D));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F, 1.0F));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Mob.class, 8.0F));
@@ -56,11 +55,6 @@ public class GummyBearEntity extends TamableAnimal {
     @Override
     public boolean canAttack(LivingEntity p_21822_) {
         return  !(p_21822_ instanceof GummyBearEntity);
-    }
-
-    @Override
-    public boolean isFood(ItemStack stack) {
-        return stack.getItem() == Items.SALMON;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -93,7 +87,7 @@ public class GummyBearEntity extends TamableAnimal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel world, AgeableMob mob) {
-        return GBEntities.GUMMY_BEAR.get().create(world);
+        return null;
     }
 
     @Override
